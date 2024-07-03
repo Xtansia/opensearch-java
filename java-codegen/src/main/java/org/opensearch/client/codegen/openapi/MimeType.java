@@ -14,8 +14,11 @@ import org.opensearch.client.codegen.utils.Maps;
 import org.opensearch.client.codegen.utils.Strings;
 
 public enum MimeType {
+    Cbor("application/cbor"),
     Json("application/json"),
-    NdJson("application/x-ndjson");
+    NdJson("application/x-ndjson"),
+    TextPlain("text/plain"),
+    Yaml("application/yaml");
 
     private static final Map<String, MimeType> VALUES = Maps.createLookupOf(values(), MimeType::toString);
 
