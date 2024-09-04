@@ -30,11 +30,16 @@
  * GitHub history for details.
  */
 
+//----------------------------------------------------
+// THIS CODE IS GENERATED. MANUAL EDITS WILL BE LOST.
+//----------------------------------------------------
+
 package org.opensearch.client.opensearch.dangling_indices;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
+import javax.annotation.Generated;
 import javax.annotation.Nullable;
 import org.opensearch.client.ApiClient;
 import org.opensearch.client.opensearch._types.ErrorResponse;
@@ -47,8 +52,8 @@ import org.opensearch.client.util.ObjectBuilder;
 /**
  * Client for the dangling_indices namespace.
  */
+@Generated("org.opensearch.client.codegen.CodeGenerator")
 public class OpenSearchDanglingIndicesAsyncClient extends ApiClient<OpenSearchTransport, OpenSearchDanglingIndicesAsyncClient> {
-
     public OpenSearchDanglingIndicesAsyncClient(OpenSearchTransport transport) {
         super(transport, null);
     }
@@ -66,9 +71,7 @@ public class OpenSearchDanglingIndicesAsyncClient extends ApiClient<OpenSearchTr
 
     /**
      * Deletes the specified dangling index
-     *
      */
-
     public CompletableFuture<DeleteDanglingIndexResponse> deleteDanglingIndex(DeleteDanglingIndexRequest request) throws IOException,
         OpenSearchException {
         @SuppressWarnings("unchecked")
@@ -83,12 +86,8 @@ public class OpenSearchDanglingIndicesAsyncClient extends ApiClient<OpenSearchTr
     /**
      * Deletes the specified dangling index
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link DeleteDanglingIndexRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link DeleteDanglingIndexRequest}
      */
-
     public final CompletableFuture<DeleteDanglingIndexResponse> deleteDanglingIndex(
         Function<DeleteDanglingIndexRequest.Builder, ObjectBuilder<DeleteDanglingIndexRequest>> fn
     ) throws IOException, OpenSearchException {
@@ -99,10 +98,7 @@ public class OpenSearchDanglingIndicesAsyncClient extends ApiClient<OpenSearchTr
 
     /**
      * Imports the specified dangling index
-     *
-     *
      */
-
     public CompletableFuture<ImportDanglingIndexResponse> importDanglingIndex(ImportDanglingIndexRequest request) throws IOException,
         OpenSearchException {
         @SuppressWarnings("unchecked")
@@ -117,12 +113,8 @@ public class OpenSearchDanglingIndicesAsyncClient extends ApiClient<OpenSearchTr
     /**
      * Imports the specified dangling index
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link ImportDanglingIndexRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link ImportDanglingIndexRequest}
      */
-
     public final CompletableFuture<ImportDanglingIndexResponse> importDanglingIndex(
         Function<ImportDanglingIndexRequest.Builder, ObjectBuilder<ImportDanglingIndexRequest>> fn
     ) throws IOException, OpenSearchException {
@@ -133,8 +125,6 @@ public class OpenSearchDanglingIndicesAsyncClient extends ApiClient<OpenSearchTr
 
     /**
      * Returns all dangling indices.
-     *
-     *
      */
     public CompletableFuture<ListDanglingIndicesResponse> listDanglingIndices() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(
@@ -143,5 +133,4 @@ public class OpenSearchDanglingIndicesAsyncClient extends ApiClient<OpenSearchTr
             this.transportOptions
         );
     }
-
 }

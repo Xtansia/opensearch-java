@@ -30,10 +30,15 @@
  * GitHub history for details.
  */
 
+//----------------------------------------------------
+// THIS CODE IS GENERATED. MANUAL EDITS WILL BE LOST.
+//----------------------------------------------------
+
 package org.opensearch.client.opensearch.snapshot;
 
 import java.io.IOException;
 import java.util.function.Function;
+import javax.annotation.Generated;
 import javax.annotation.Nullable;
 import org.opensearch.client.ApiClient;
 import org.opensearch.client.opensearch._types.ErrorResponse;
@@ -46,8 +51,8 @@ import org.opensearch.client.util.ObjectBuilder;
 /**
  * Client for the snapshot namespace.
  */
+@Generated("org.opensearch.client.codegen.CodeGenerator")
 public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, OpenSearchSnapshotClient> {
-
     public OpenSearchSnapshotClient(OpenSearchTransport transport) {
         super(transport, null);
     }
@@ -65,10 +70,7 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
 
     /**
      * Removes stale data from repository.
-     *
-     *
      */
-
     public CleanupRepositoryResponse cleanupRepository(CleanupRepositoryRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<CleanupRepositoryRequest, CleanupRepositoryResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -82,28 +84,20 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
     /**
      * Removes stale data from repository.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link CleanupRepositoryRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link CleanupRepositoryRequest}
      */
-
     public final CleanupRepositoryResponse cleanupRepository(
         Function<CleanupRepositoryRequest.Builder, ObjectBuilder<CleanupRepositoryRequest>> fn
     ) throws IOException, OpenSearchException {
         return cleanupRepository(fn.apply(new CleanupRepositoryRequest.Builder()).build());
     }
 
-    // ----- Endpoint: snapshot.clone
+    // ----- Endpoint: snapshot.clone_snapshot
 
     /**
-     * Clones indices from one snapshot into another snapshot in the same
-     * repository.
-     *
-     *
+     * Clones indices from one snapshot into another snapshot in the same repository.
      */
-
-    public CloneSnapshotResponse clone(CloneSnapshotRequest request) throws IOException, OpenSearchException {
+    public CloneSnapshotResponse cloneSnapshot(CloneSnapshotRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<CloneSnapshotRequest, CloneSnapshotResponse, ErrorResponse> endpoint = (JsonEndpoint<
             CloneSnapshotRequest,
@@ -114,60 +108,20 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
     }
 
     /**
-     * Clones indices from one snapshot into another snapshot in the same
-     * repository.
+     * Clones indices from one snapshot into another snapshot in the same repository.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link CloneSnapshotRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link CloneSnapshotRequest}
      */
-
-    public final CloneSnapshotResponse clone(Function<CloneSnapshotRequest.Builder, ObjectBuilder<CloneSnapshotRequest>> fn)
+    public final CloneSnapshotResponse cloneSnapshot(Function<CloneSnapshotRequest.Builder, ObjectBuilder<CloneSnapshotRequest>> fn)
         throws IOException, OpenSearchException {
-        return clone(fn.apply(new CloneSnapshotRequest.Builder()).build());
-    }
-
-    // ----- Endpoint: snapshot.create
-
-    /**
-     * Creates a snapshot in a repository.
-     *
-     *
-     */
-
-    public CreateSnapshotResponse create(CreateSnapshotRequest request) throws IOException, OpenSearchException {
-        @SuppressWarnings("unchecked")
-        JsonEndpoint<CreateSnapshotRequest, CreateSnapshotResponse, ErrorResponse> endpoint = (JsonEndpoint<
-            CreateSnapshotRequest,
-            CreateSnapshotResponse,
-            ErrorResponse>) CreateSnapshotRequest._ENDPOINT;
-
-        return this.transport.performRequest(request, endpoint, this.transportOptions);
-    }
-
-    /**
-     * Creates a snapshot in a repository.
-     *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link CreateSnapshotRequest}
-     *
-     */
-
-    public final CreateSnapshotResponse create(Function<CreateSnapshotRequest.Builder, ObjectBuilder<CreateSnapshotRequest>> fn)
-        throws IOException, OpenSearchException {
-        return create(fn.apply(new CreateSnapshotRequest.Builder()).build());
+        return cloneSnapshot(fn.apply(new CloneSnapshotRequest.Builder()).build());
     }
 
     // ----- Endpoint: snapshot.create_repository
 
     /**
      * Creates a repository.
-     *
-     *
      */
-
     public CreateRepositoryResponse createRepository(CreateRepositoryRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<CreateRepositoryRequest, CreateRepositoryResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -181,58 +135,44 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
     /**
      * Creates a repository.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link CreateRepositoryRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link CreateRepositoryRequest}
      */
-
     public final CreateRepositoryResponse createRepository(
         Function<CreateRepositoryRequest.Builder, ObjectBuilder<CreateRepositoryRequest>> fn
     ) throws IOException, OpenSearchException {
         return createRepository(fn.apply(new CreateRepositoryRequest.Builder()).build());
     }
 
-    // ----- Endpoint: snapshot.delete
+    // ----- Endpoint: snapshot.create_snapshot
 
     /**
-     * Deletes a snapshot.
-     *
-     *
+     * Creates a snapshot in a repository.
      */
-
-    public DeleteSnapshotResponse delete(DeleteSnapshotRequest request) throws IOException, OpenSearchException {
+    public CreateSnapshotResponse createSnapshot(CreateSnapshotRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
-        JsonEndpoint<DeleteSnapshotRequest, DeleteSnapshotResponse, ErrorResponse> endpoint = (JsonEndpoint<
-            DeleteSnapshotRequest,
-            DeleteSnapshotResponse,
-            ErrorResponse>) DeleteSnapshotRequest._ENDPOINT;
+        JsonEndpoint<CreateSnapshotRequest, CreateSnapshotResponse, ErrorResponse> endpoint = (JsonEndpoint<
+            CreateSnapshotRequest,
+            CreateSnapshotResponse,
+            ErrorResponse>) CreateSnapshotRequest._ENDPOINT;
 
         return this.transport.performRequest(request, endpoint, this.transportOptions);
     }
 
     /**
-     * Deletes a snapshot.
+     * Creates a snapshot in a repository.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link DeleteSnapshotRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link CreateSnapshotRequest}
      */
-
-    public final DeleteSnapshotResponse delete(Function<DeleteSnapshotRequest.Builder, ObjectBuilder<DeleteSnapshotRequest>> fn)
+    public final CreateSnapshotResponse createSnapshot(Function<CreateSnapshotRequest.Builder, ObjectBuilder<CreateSnapshotRequest>> fn)
         throws IOException, OpenSearchException {
-        return delete(fn.apply(new DeleteSnapshotRequest.Builder()).build());
+        return createSnapshot(fn.apply(new CreateSnapshotRequest.Builder()).build());
     }
 
     // ----- Endpoint: snapshot.delete_repository
 
     /**
      * Deletes a repository.
-     *
-     *
      */
-
     public DeleteRepositoryResponse deleteRepository(DeleteRepositoryRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<DeleteRepositoryRequest, DeleteRepositoryResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -246,58 +186,44 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
     /**
      * Deletes a repository.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link DeleteRepositoryRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link DeleteRepositoryRequest}
      */
-
     public final DeleteRepositoryResponse deleteRepository(
         Function<DeleteRepositoryRequest.Builder, ObjectBuilder<DeleteRepositoryRequest>> fn
     ) throws IOException, OpenSearchException {
         return deleteRepository(fn.apply(new DeleteRepositoryRequest.Builder()).build());
     }
 
-    // ----- Endpoint: snapshot.get
+    // ----- Endpoint: snapshot.delete_snapshot
 
     /**
-     * Returns information about a snapshot.
-     *
-     *
+     * Deletes a snapshot.
      */
-
-    public GetSnapshotResponse get(GetSnapshotRequest request) throws IOException, OpenSearchException {
+    public DeleteSnapshotResponse deleteSnapshot(DeleteSnapshotRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
-        JsonEndpoint<GetSnapshotRequest, GetSnapshotResponse, ErrorResponse> endpoint = (JsonEndpoint<
-            GetSnapshotRequest,
-            GetSnapshotResponse,
-            ErrorResponse>) GetSnapshotRequest._ENDPOINT;
+        JsonEndpoint<DeleteSnapshotRequest, DeleteSnapshotResponse, ErrorResponse> endpoint = (JsonEndpoint<
+            DeleteSnapshotRequest,
+            DeleteSnapshotResponse,
+            ErrorResponse>) DeleteSnapshotRequest._ENDPOINT;
 
         return this.transport.performRequest(request, endpoint, this.transportOptions);
     }
 
     /**
-     * Returns information about a snapshot.
+     * Deletes a snapshot.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link GetSnapshotRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link DeleteSnapshotRequest}
      */
-
-    public final GetSnapshotResponse get(Function<GetSnapshotRequest.Builder, ObjectBuilder<GetSnapshotRequest>> fn) throws IOException,
-        OpenSearchException {
-        return get(fn.apply(new GetSnapshotRequest.Builder()).build());
+    public final DeleteSnapshotResponse deleteSnapshot(Function<DeleteSnapshotRequest.Builder, ObjectBuilder<DeleteSnapshotRequest>> fn)
+        throws IOException, OpenSearchException {
+        return deleteSnapshot(fn.apply(new DeleteSnapshotRequest.Builder()).build());
     }
 
     // ----- Endpoint: snapshot.get_repository
 
     /**
      * Returns information about a repository.
-     *
-     *
      */
-
     public GetRepositoryResponse getRepository(GetRepositoryRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<GetRepositoryRequest, GetRepositoryResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -311,12 +237,8 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
     /**
      * Returns information about a repository.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link GetRepositoryRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link GetRepositoryRequest}
      */
-
     public final GetRepositoryResponse getRepository(Function<GetRepositoryRequest.Builder, ObjectBuilder<GetRepositoryRequest>> fn)
         throws IOException, OpenSearchException {
         return getRepository(fn.apply(new GetRepositoryRequest.Builder()).build());
@@ -324,10 +246,7 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
 
     /**
      * Returns information about a repository.
-     *
-     *
      */
-
     public GetRepositoryResponse getRepository() throws IOException, OpenSearchException {
         return this.transport.performRequest(
             new GetRepositoryRequest.Builder().build(),
@@ -336,14 +255,36 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
         );
     }
 
+    // ----- Endpoint: snapshot.get_snapshot
+
+    /**
+     * Returns information about a snapshot.
+     */
+    public GetSnapshotResponse getSnapshot(GetSnapshotRequest request) throws IOException, OpenSearchException {
+        @SuppressWarnings("unchecked")
+        JsonEndpoint<GetSnapshotRequest, GetSnapshotResponse, ErrorResponse> endpoint = (JsonEndpoint<
+            GetSnapshotRequest,
+            GetSnapshotResponse,
+            ErrorResponse>) GetSnapshotRequest._ENDPOINT;
+
+        return this.transport.performRequest(request, endpoint, this.transportOptions);
+    }
+
+    /**
+     * Returns information about a snapshot.
+     *
+     * @param fn a function that initializes a builder to create the {@link GetSnapshotRequest}
+     */
+    public final GetSnapshotResponse getSnapshot(Function<GetSnapshotRequest.Builder, ObjectBuilder<GetSnapshotRequest>> fn)
+        throws IOException, OpenSearchException {
+        return getSnapshot(fn.apply(new GetSnapshotRequest.Builder()).build());
+    }
+
     // ----- Endpoint: snapshot.restore
 
     /**
      * Restores a snapshot.
-     *
-     *
      */
-
     public RestoreResponse restore(RestoreRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<RestoreRequest, RestoreResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -357,26 +298,19 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
     /**
      * Restores a snapshot.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link RestoreRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link RestoreRequest}
      */
-
     public final RestoreResponse restore(Function<RestoreRequest.Builder, ObjectBuilder<RestoreRequest>> fn) throws IOException,
         OpenSearchException {
         return restore(fn.apply(new RestoreRequest.Builder()).build());
     }
 
-    // ----- Endpoint: snapshot.status
+    // ----- Endpoint: snapshot.snapshot_status
 
     /**
      * Returns information about the status of a snapshot.
-     *
-     *
      */
-
-    public SnapshotStatusResponse status(SnapshotStatusRequest request) throws IOException, OpenSearchException {
+    public SnapshotStatusResponse snapshotStatus(SnapshotStatusRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<SnapshotStatusRequest, SnapshotStatusResponse, ErrorResponse> endpoint = (JsonEndpoint<
             SnapshotStatusRequest,
@@ -389,24 +323,17 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
     /**
      * Returns information about the status of a snapshot.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link SnapshotStatusRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link SnapshotStatusRequest}
      */
-
-    public final SnapshotStatusResponse status(Function<SnapshotStatusRequest.Builder, ObjectBuilder<SnapshotStatusRequest>> fn)
+    public final SnapshotStatusResponse snapshotStatus(Function<SnapshotStatusRequest.Builder, ObjectBuilder<SnapshotStatusRequest>> fn)
         throws IOException, OpenSearchException {
-        return status(fn.apply(new SnapshotStatusRequest.Builder()).build());
+        return snapshotStatus(fn.apply(new SnapshotStatusRequest.Builder()).build());
     }
 
     /**
      * Returns information about the status of a snapshot.
-     *
-     *
      */
-
-    public SnapshotStatusResponse status() throws IOException, OpenSearchException {
+    public SnapshotStatusResponse snapshotStatus() throws IOException, OpenSearchException {
         return this.transport.performRequest(
             new SnapshotStatusRequest.Builder().build(),
             SnapshotStatusRequest._ENDPOINT,
@@ -418,10 +345,7 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
 
     /**
      * Verifies a repository.
-     *
-     *
      */
-
     public VerifyRepositoryResponse verifyRepository(VerifyRepositoryRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<VerifyRepositoryRequest, VerifyRepositoryResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -435,16 +359,11 @@ public class OpenSearchSnapshotClient extends ApiClient<OpenSearchTransport, Ope
     /**
      * Verifies a repository.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link VerifyRepositoryRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link VerifyRepositoryRequest}
      */
-
     public final VerifyRepositoryResponse verifyRepository(
         Function<VerifyRepositoryRequest.Builder, ObjectBuilder<VerifyRepositoryRequest>> fn
     ) throws IOException, OpenSearchException {
         return verifyRepository(fn.apply(new VerifyRepositoryRequest.Builder()).build());
     }
-
 }

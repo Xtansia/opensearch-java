@@ -70,6 +70,7 @@ tasks.named<JavaExec>("run") {
     args = listOf(
         "--input", "$projectDir/opensearch-openapi.yaml",
         "--eclipse-config", "$rootDir/buildSrc/formatterConfig-generated.xml",
+        "--client-src", "${project(":java-client").projectDir}/src/main/java/",
         "--output", "${project(":java-client").projectDir}/src/generated/java/"
     )
 }
@@ -128,6 +129,9 @@ dependencies {
 
     // (New) BSD
     implementation("com.samskivert", "jmustache", "1.16")
+
+    // LGPL-3 OR Apache 2.0
+    implementation("com.github.javaparser", "javaparser-symbol-solver-core", "3.26.0")
 
     // Apache 2.0
     implementation("commons-cli", "commons-cli", "1.8.0")

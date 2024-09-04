@@ -42,7 +42,7 @@ import org.opensearch.client.opensearch._types.RequestBase;
 import org.opensearch.client.transport.Endpoint;
 import org.opensearch.client.transport.endpoints.SimpleEndpoint;
 
-// typedef: info.Request
+// typedef: _global.info.Request
 
 /**
  * Returns basic information about the cluster.

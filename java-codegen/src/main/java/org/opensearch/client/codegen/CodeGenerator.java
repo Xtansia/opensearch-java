@@ -30,6 +30,7 @@ import org.opensearch.client.codegen.model.OperationGroup;
 import org.opensearch.client.codegen.model.ShapeRenderingContext;
 import org.opensearch.client.codegen.model.SpecTransformer;
 import org.opensearch.client.codegen.openapi.OpenApiSpecification;
+import org.opensearch.client.codegen.utils.JavaSourceParser;
 
 public class CodeGenerator {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -50,6 +51,13 @@ public class CodeGenerator {
             .hasArg()
             .required()
             .build();
+        var clientSrcOpt = Option.builder("s")
+            .longOpt("client-src")
+            .desc("The path to the client's src/main/java directory")
+            .argName("CLIENT_SRC")
+            .hasArg()
+            .required()
+            .build();
         var outputOpt = Option.builder("o")
             .longOpt("output")
             .desc("The path to the output directory to generate code into")
@@ -59,9 +67,13 @@ public class CodeGenerator {
             .build();
         var helpOpt = Option.builder("h").longOpt("help").desc("Print this help information").build();
         final var usageString =
-            "Main.class --input https://.../opensearch-openapi.yaml --eclipse-config ./buildSrc/formatterConfig.xml --output ./java-client/src/generated/java";
+            "Main.class --input https://.../opensearch-openapi.yaml --eclipse-config ./buildSrc/formatterConfig.xml --client-src ./java-client/src/main/java --output ./java-client/src/generated/java";
 
-        var options = new Options().addOption(inputOpt).addOption(eclipseConfigOpt).addOption(outputOpt).addOption(helpOpt);
+        var options = new Options().addOption(inputOpt)
+            .addOption(eclipseConfigOpt)
+            .addOption(clientSrcOpt)
+            .addOption(outputOpt)
+            .addOption(helpOpt);
 
         var cliParser = new DefaultParser();
 
@@ -76,21 +88,25 @@ public class CodeGenerator {
 
             var specLocation = new URI(cli.getOptionValue(inputOpt));
             var eclipseConfig = new File(cli.getOptionValue(eclipseConfigOpt));
+            var clientSrcDir = new File(cli.getOptionValue(clientSrcOpt));
             var outputDir = new File(cli.getOptionValue(outputOpt));
             LOGGER.info("Specification Location: {}", specLocation);
             LOGGER.info("Eclipse Configuration: {}", eclipseConfig);
+            LOGGER.info("Client Source Directory: {}", clientSrcDir);
             LOGGER.info("Output Directory: {}", outputDir);
 
             Namespace root = parseSpec(specLocation);
 
             cleanDirectory(outputDir);
 
-            final var rootPackageOutputDir = new File(outputDir, root.getPackageName().replace('.', '/'));
+            var rootPackageSubDir = root.getPackageName().replace('.', File.separatorChar);
+
+            root.collectExistingOperations(JavaSourceParser.builder().withSourceDir(clientSrcDir).build());
 
             try (
                 var ctx = ShapeRenderingContext.builder()
-                    .withOutputDir(rootPackageOutputDir)
-                    .withJavaCodeFormatter(b -> b.withRootDir(rootPackageOutputDir.toPath()).withEclipseFormatterConfig(eclipseConfig))
+                    .withOutputDir(new File(outputDir, rootPackageSubDir))
+                    .withJavaCodeFormatter(b -> b.withRootDir(outputDir.toPath()).withEclipseFormatterConfig(eclipseConfig))
                     .withTemplateLoader(b -> b.withTemplatesResourceSubPath("/org/opensearch/client/codegen/templates"))
                     .build()
             ) {

@@ -30,10 +30,16 @@
  * GitHub history for details.
  */
 
+//----------------------------------------------------
+// THIS CODE IS GENERATED. MANUAL EDITS WILL BE LOST.
+//----------------------------------------------------
+
 package org.opensearch.client.opensearch.tasks;
 
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
+import javax.annotation.Generated;
 import javax.annotation.Nullable;
 import org.opensearch.client.ApiClient;
 import org.opensearch.client.opensearch._types.ErrorResponse;
@@ -46,134 +52,107 @@ import org.opensearch.client.util.ObjectBuilder;
 /**
  * Client for the tasks namespace.
  */
-public class OpenSearchTasksClient extends ApiClient<OpenSearchTransport, OpenSearchTasksClient> {
-
-    public OpenSearchTasksClient(OpenSearchTransport transport) {
+@Generated("org.opensearch.client.codegen.CodeGenerator")
+public class OpenSearchTasksAsyncClient extends ApiClient<OpenSearchTransport, OpenSearchTasksAsyncClient> {
+    public OpenSearchTasksAsyncClient(OpenSearchTransport transport) {
         super(transport, null);
     }
 
-    public OpenSearchTasksClient(OpenSearchTransport transport, @Nullable TransportOptions transportOptions) {
+    public OpenSearchTasksAsyncClient(OpenSearchTransport transport, @Nullable TransportOptions transportOptions) {
         super(transport, transportOptions);
     }
 
     @Override
-    public OpenSearchTasksClient withTransportOptions(@Nullable TransportOptions transportOptions) {
-        return new OpenSearchTasksClient(this.transport, transportOptions);
+    public OpenSearchTasksAsyncClient withTransportOptions(@Nullable TransportOptions transportOptions) {
+        return new OpenSearchTasksAsyncClient(this.transport, transportOptions);
     }
 
     // ----- Endpoint: tasks.cancel
 
     /**
      * Cancels a task, if it can be cancelled through an API.
-     *
-     *
      */
-
-    public CancelResponse cancel(CancelRequest request) throws IOException, OpenSearchException {
+    public CompletableFuture<CancelResponse> cancel(CancelRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<CancelRequest, CancelResponse, ErrorResponse> endpoint = (JsonEndpoint<
             CancelRequest,
             CancelResponse,
             ErrorResponse>) CancelRequest._ENDPOINT;
 
-        return this.transport.performRequest(request, endpoint, this.transportOptions);
+        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
     }
 
     /**
      * Cancels a task, if it can be cancelled through an API.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link CancelRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link CancelRequest}
      */
-
-    public final CancelResponse cancel(Function<CancelRequest.Builder, ObjectBuilder<CancelRequest>> fn) throws IOException,
-        OpenSearchException {
+    public final CompletableFuture<CancelResponse> cancel(Function<CancelRequest.Builder, ObjectBuilder<CancelRequest>> fn)
+        throws IOException, OpenSearchException {
         return cancel(fn.apply(new CancelRequest.Builder()).build());
     }
 
     /**
      * Cancels a task, if it can be cancelled through an API.
-     *
-     *
      */
-
-    public CancelResponse cancel() throws IOException, OpenSearchException {
-        return this.transport.performRequest(new CancelRequest.Builder().build(), CancelRequest._ENDPOINT, this.transportOptions);
+    public CompletableFuture<CancelResponse> cancel() throws IOException, OpenSearchException {
+        return this.transport.performRequestAsync(new CancelRequest.Builder().build(), CancelRequest._ENDPOINT, this.transportOptions);
     }
 
-    // ----- Endpoint: tasks.get
+    // ----- Endpoint: tasks.get_tasks
 
     /**
      * Returns information about a task.
-     *
-     *
      */
-
-    public GetTasksResponse get(GetTasksRequest request) throws IOException, OpenSearchException {
+    public CompletableFuture<GetTasksResponse> getTasks(GetTasksRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<GetTasksRequest, GetTasksResponse, ErrorResponse> endpoint = (JsonEndpoint<
             GetTasksRequest,
             GetTasksResponse,
             ErrorResponse>) GetTasksRequest._ENDPOINT;
 
-        return this.transport.performRequest(request, endpoint, this.transportOptions);
+        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
     }
 
     /**
      * Returns information about a task.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link GetTasksRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link GetTasksRequest}
      */
-
-    public final GetTasksResponse get(Function<GetTasksRequest.Builder, ObjectBuilder<GetTasksRequest>> fn) throws IOException,
-        OpenSearchException {
-        return get(fn.apply(new GetTasksRequest.Builder()).build());
+    public final CompletableFuture<GetTasksResponse> getTasks(Function<GetTasksRequest.Builder, ObjectBuilder<GetTasksRequest>> fn)
+        throws IOException, OpenSearchException {
+        return getTasks(fn.apply(new GetTasksRequest.Builder()).build());
     }
 
     // ----- Endpoint: tasks.list
 
     /**
      * Returns a list of tasks.
-     *
-     *
      */
-
-    public ListResponse list(ListRequest request) throws IOException, OpenSearchException {
+    public CompletableFuture<ListResponse> list(ListRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<ListRequest, ListResponse, ErrorResponse> endpoint = (JsonEndpoint<
             ListRequest,
             ListResponse,
             ErrorResponse>) ListRequest._ENDPOINT;
 
-        return this.transport.performRequest(request, endpoint, this.transportOptions);
+        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
     }
 
     /**
      * Returns a list of tasks.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link ListRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link ListRequest}
      */
-
-    public final ListResponse list(Function<ListRequest.Builder, ObjectBuilder<ListRequest>> fn) throws IOException, OpenSearchException {
+    public final CompletableFuture<ListResponse> list(Function<ListRequest.Builder, ObjectBuilder<ListRequest>> fn) throws IOException,
+        OpenSearchException {
         return list(fn.apply(new ListRequest.Builder()).build());
     }
 
     /**
      * Returns a list of tasks.
-     *
-     *
      */
-
-    public ListResponse list() throws IOException, OpenSearchException {
-        return this.transport.performRequest(new ListRequest.Builder().build(), ListRequest._ENDPOINT, this.transportOptions);
+    public CompletableFuture<ListResponse> list() throws IOException, OpenSearchException {
+        return this.transport.performRequestAsync(new ListRequest.Builder().build(), ListRequest._ENDPOINT, this.transportOptions);
     }
-
 }

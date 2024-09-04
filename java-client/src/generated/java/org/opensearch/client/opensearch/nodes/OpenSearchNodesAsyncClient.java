@@ -30,11 +30,16 @@
  * GitHub history for details.
  */
 
+//----------------------------------------------------
+// THIS CODE IS GENERATED. MANUAL EDITS WILL BE LOST.
+//----------------------------------------------------
+
 package org.opensearch.client.opensearch.nodes;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
+import javax.annotation.Generated;
 import javax.annotation.Nullable;
 import org.opensearch.client.ApiClient;
 import org.opensearch.client.opensearch._types.ErrorResponse;
@@ -47,8 +52,8 @@ import org.opensearch.client.util.ObjectBuilder;
 /**
  * Client for the nodes namespace.
  */
+@Generated("org.opensearch.client.codegen.CodeGenerator")
 public class OpenSearchNodesAsyncClient extends ApiClient<OpenSearchTransport, OpenSearchNodesAsyncClient> {
-
     public OpenSearchNodesAsyncClient(OpenSearchTransport transport) {
         super(transport, null);
     }
@@ -66,10 +71,7 @@ public class OpenSearchNodesAsyncClient extends ApiClient<OpenSearchTransport, O
 
     /**
      * Returns information about hot threads on each node in the cluster.
-     *
-     *
      */
-
     public CompletableFuture<HotThreadsResponse> hotThreads(HotThreadsRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<HotThreadsRequest, HotThreadsResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -83,12 +85,8 @@ public class OpenSearchNodesAsyncClient extends ApiClient<OpenSearchTransport, O
     /**
      * Returns information about hot threads on each node in the cluster.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link HotThreadsRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link HotThreadsRequest}
      */
-
     public final CompletableFuture<HotThreadsResponse> hotThreads(Function<HotThreadsRequest.Builder, ObjectBuilder<HotThreadsRequest>> fn)
         throws IOException, OpenSearchException {
         return hotThreads(fn.apply(new HotThreadsRequest.Builder()).build());
@@ -96,10 +94,7 @@ public class OpenSearchNodesAsyncClient extends ApiClient<OpenSearchTransport, O
 
     /**
      * Returns information about hot threads on each node in the cluster.
-     *
-     *
      */
-
     public CompletableFuture<HotThreadsResponse> hotThreads() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(
             new HotThreadsRequest.Builder().build(),
@@ -108,15 +103,12 @@ public class OpenSearchNodesAsyncClient extends ApiClient<OpenSearchTransport, O
         );
     }
 
-    // ----- Endpoint: nodes.info
+    // ----- Endpoint: nodes.nodes_info
 
     /**
      * Returns information about nodes in the cluster.
-     *
-     *
      */
-
-    public CompletableFuture<NodesInfoResponse> info(NodesInfoRequest request) throws IOException, OpenSearchException {
+    public CompletableFuture<NodesInfoResponse> nodesInfo(NodesInfoRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<NodesInfoRequest, NodesInfoResponse, ErrorResponse> endpoint = (JsonEndpoint<
             NodesInfoRequest,
@@ -129,27 +121,92 @@ public class OpenSearchNodesAsyncClient extends ApiClient<OpenSearchTransport, O
     /**
      * Returns information about nodes in the cluster.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link NodesInfoRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link NodesInfoRequest}
      */
-
-    public final CompletableFuture<NodesInfoResponse> info(Function<NodesInfoRequest.Builder, ObjectBuilder<NodesInfoRequest>> fn)
+    public final CompletableFuture<NodesInfoResponse> nodesInfo(Function<NodesInfoRequest.Builder, ObjectBuilder<NodesInfoRequest>> fn)
         throws IOException, OpenSearchException {
-        return info(fn.apply(new NodesInfoRequest.Builder()).build());
+        return nodesInfo(fn.apply(new NodesInfoRequest.Builder()).build());
     }
 
     /**
      * Returns information about nodes in the cluster.
-     *
-     *
      */
-
-    public CompletableFuture<NodesInfoResponse> info() throws IOException, OpenSearchException {
+    public CompletableFuture<NodesInfoResponse> nodesInfo() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(
             new NodesInfoRequest.Builder().build(),
             NodesInfoRequest._ENDPOINT,
+            this.transportOptions
+        );
+    }
+
+    // ----- Endpoint: nodes.nodes_stats
+
+    /**
+     * Returns statistical information about nodes in the cluster.
+     */
+    public CompletableFuture<NodesStatsResponse> nodesStats(NodesStatsRequest request) throws IOException, OpenSearchException {
+        @SuppressWarnings("unchecked")
+        JsonEndpoint<NodesStatsRequest, NodesStatsResponse, ErrorResponse> endpoint = (JsonEndpoint<
+            NodesStatsRequest,
+            NodesStatsResponse,
+            ErrorResponse>) NodesStatsRequest._ENDPOINT;
+
+        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
+    }
+
+    /**
+     * Returns statistical information about nodes in the cluster.
+     *
+     * @param fn a function that initializes a builder to create the {@link NodesStatsRequest}
+     */
+    public final CompletableFuture<NodesStatsResponse> nodesStats(Function<NodesStatsRequest.Builder, ObjectBuilder<NodesStatsRequest>> fn)
+        throws IOException, OpenSearchException {
+        return nodesStats(fn.apply(new NodesStatsRequest.Builder()).build());
+    }
+
+    /**
+     * Returns statistical information about nodes in the cluster.
+     */
+    public CompletableFuture<NodesStatsResponse> nodesStats() throws IOException, OpenSearchException {
+        return this.transport.performRequestAsync(
+            new NodesStatsRequest.Builder().build(),
+            NodesStatsRequest._ENDPOINT,
+            this.transportOptions
+        );
+    }
+
+    // ----- Endpoint: nodes.nodes_usage
+
+    /**
+     * Returns low-level information about REST actions usage on nodes.
+     */
+    public CompletableFuture<NodesUsageResponse> nodesUsage(NodesUsageRequest request) throws IOException, OpenSearchException {
+        @SuppressWarnings("unchecked")
+        JsonEndpoint<NodesUsageRequest, NodesUsageResponse, ErrorResponse> endpoint = (JsonEndpoint<
+            NodesUsageRequest,
+            NodesUsageResponse,
+            ErrorResponse>) NodesUsageRequest._ENDPOINT;
+
+        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
+    }
+
+    /**
+     * Returns low-level information about REST actions usage on nodes.
+     *
+     * @param fn a function that initializes a builder to create the {@link NodesUsageRequest}
+     */
+    public final CompletableFuture<NodesUsageResponse> nodesUsage(Function<NodesUsageRequest.Builder, ObjectBuilder<NodesUsageRequest>> fn)
+        throws IOException, OpenSearchException {
+        return nodesUsage(fn.apply(new NodesUsageRequest.Builder()).build());
+    }
+
+    /**
+     * Returns low-level information about REST actions usage on nodes.
+     */
+    public CompletableFuture<NodesUsageResponse> nodesUsage() throws IOException, OpenSearchException {
+        return this.transport.performRequestAsync(
+            new NodesUsageRequest.Builder().build(),
+            NodesUsageRequest._ENDPOINT,
             this.transportOptions
         );
     }
@@ -159,7 +216,6 @@ public class OpenSearchNodesAsyncClient extends ApiClient<OpenSearchTransport, O
     /**
      * Reloads secure settings.
      */
-
     public CompletableFuture<ReloadSecureSettingsResponse> reloadSecureSettings(ReloadSecureSettingsRequest request) throws IOException,
         OpenSearchException {
         @SuppressWarnings("unchecked")
@@ -174,11 +230,8 @@ public class OpenSearchNodesAsyncClient extends ApiClient<OpenSearchTransport, O
     /**
      * Reloads secure settings.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link ReloadSecureSettingsRequest}
+     * @param fn a function that initializes a builder to create the {@link ReloadSecureSettingsRequest}
      */
-
     public final CompletableFuture<ReloadSecureSettingsResponse> reloadSecureSettings(
         Function<ReloadSecureSettingsRequest.Builder, ObjectBuilder<ReloadSecureSettingsRequest>> fn
     ) throws IOException, OpenSearchException {
@@ -188,7 +241,6 @@ public class OpenSearchNodesAsyncClient extends ApiClient<OpenSearchTransport, O
     /**
      * Reloads secure settings.
      */
-
     public CompletableFuture<ReloadSecureSettingsResponse> reloadSecureSettings() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(
             new ReloadSecureSettingsRequest.Builder().build(),
@@ -196,96 +248,4 @@ public class OpenSearchNodesAsyncClient extends ApiClient<OpenSearchTransport, O
             this.transportOptions
         );
     }
-
-    // ----- Endpoint: nodes.stats
-
-    /**
-     * Returns statistical information about nodes in the cluster.
-     *
-     *
-     */
-
-    public CompletableFuture<NodesStatsResponse> stats(NodesStatsRequest request) throws IOException, OpenSearchException {
-        @SuppressWarnings("unchecked")
-        JsonEndpoint<NodesStatsRequest, NodesStatsResponse, ErrorResponse> endpoint = (JsonEndpoint<
-            NodesStatsRequest,
-            NodesStatsResponse,
-            ErrorResponse>) NodesStatsRequest._ENDPOINT;
-
-        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
-    }
-
-    /**
-     * Returns statistical information about nodes in the cluster.
-     *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link NodesStatsRequest}
-     */
-
-    public final CompletableFuture<NodesStatsResponse> stats(Function<NodesStatsRequest.Builder, ObjectBuilder<NodesStatsRequest>> fn)
-        throws IOException, OpenSearchException {
-        return stats(fn.apply(new NodesStatsRequest.Builder()).build());
-    }
-
-    /**
-     * Returns statistical information about nodes in the cluster.
-     *
-     *
-     */
-
-    public CompletableFuture<NodesStatsResponse> stats() throws IOException, OpenSearchException {
-        return this.transport.performRequestAsync(
-            new NodesStatsRequest.Builder().build(),
-            NodesStatsRequest._ENDPOINT,
-            this.transportOptions
-        );
-    }
-
-    // ----- Endpoint: nodes.usage
-
-    /**
-     * Returns low-level information about REST actions usage on nodes.
-     *
-     *
-     */
-
-    public CompletableFuture<NodesUsageResponse> usage(NodesUsageRequest request) throws IOException, OpenSearchException {
-        @SuppressWarnings("unchecked")
-        JsonEndpoint<NodesUsageRequest, NodesUsageResponse, ErrorResponse> endpoint = (JsonEndpoint<
-            NodesUsageRequest,
-            NodesUsageResponse,
-            ErrorResponse>) NodesUsageRequest._ENDPOINT;
-
-        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
-    }
-
-    /**
-     * Returns low-level information about REST actions usage on nodes.
-     *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link NodesUsageRequest}
-     *
-     */
-
-    public final CompletableFuture<NodesUsageResponse> usage(Function<NodesUsageRequest.Builder, ObjectBuilder<NodesUsageRequest>> fn)
-        throws IOException, OpenSearchException {
-        return usage(fn.apply(new NodesUsageRequest.Builder()).build());
-    }
-
-    /**
-     * Returns low-level information about REST actions usage on nodes.
-     *
-     *
-     */
-
-    public CompletableFuture<NodesUsageResponse> usage() throws IOException, OpenSearchException {
-        return this.transport.performRequestAsync(
-            new NodesUsageRequest.Builder().build(),
-            NodesUsageRequest._ENDPOINT,
-            this.transportOptions
-        );
-    }
-
 }

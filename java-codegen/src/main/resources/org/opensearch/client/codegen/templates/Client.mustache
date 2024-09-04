@@ -12,6 +12,10 @@
         return new {{className}}(this.transport, transportOptions);
     }
 {{#children}}
+    {{#-first}}
+
+    // ----- Child clients
+    {{/-first}}
 
     public {{type}} {{#camelCase}}{{name}}{{/camelCase}}() {
         return new {{type}}(this.transport, this.transportOptions);
@@ -21,11 +25,30 @@
 
     // ----- Endpoint: {{operationGroup}}
 
+    {{#canBeSingleton}}
     /**
      * {{description}}
      */
-    public {{#async}}{{TYPES.Java.Util.Concurrent.CompletableFuture}}<{{/async}}{{responseType}}{{#async}}>{{/async}} {{#camelCase}}{{id}}{{/camelCase}}({{type}} request) throws {{TYPES.Java.Io.IOException}}, {{TYPES.Client.OpenSearch._Types.OpenSearchException}} {
-        return this.transport.performRequest{{#async}}Async{{/async}}(request, {{type}}._ENDPOINT, this.transportOptions);
+    public {{#async}}{{TYPES.Java.Util.Concurrent.CompletableFuture}}<{{/async}}{{responseType}}{{#async}}>{{/async}} {{#camelCase}}{{id}}{{/camelCase}}() throws {{TYPES.Java.Io.IOException}}, {{TYPES.Client.OpenSearch._Types.OpenSearchException}} {
+        return this.transport.performRequest{{#async}}Async{{/async}}({{type.name}}._INSTANCE, {{type.name}}._ENDPOINT, this.transportOptions);
+    }
+    {{/canBeSingleton}}
+    {{^canBeSingleton}}
+    /**
+     * {{description}}
+     */
+    public{{functionTypeParameterDiamond}} {{#async}}{{TYPES.Java.Util.Concurrent.CompletableFuture}}<{{/async}}{{responseType}}{{#async}}>{{/async}} {{#camelCase}}{{id}}{{/camelCase}}({{type}} request) throws {{TYPES.Java.Io.IOException}}, {{TYPES.Client.OpenSearch._Types.OpenSearchException}} {
+        @SuppressWarnings("unchecked")
+        {{jsonEndpointType}} endpoint = ({{jsonEndpointType}}) {{type.name}}._ENDPOINT;
+        {{#responseType.typeParams}}
+        endpoint = new {{TYPES.Client.Transport.Endpoints.EndpointWithResponseMapperAttr}}<>(
+            endpoint,
+            "org.opensearch.client:Deserializer:{{operationGroup.asTypedefPrefix}}.{{name}}",
+            getDeserializer({{#camelCase}}{{name}}{{/camelCase}}Class)
+        );
+        {{/responseType.typeParams}}
+
+        return this.transport.performRequest{{#async}}Async{{/async}}(request, endpoint, this.transportOptions);
     }
 
     /**
@@ -33,7 +56,7 @@
      *
      * @param fn a function that initializes a builder to create the {@link {{type}}}
      */
-    public final {{#async}}{{TYPES.Java.Util.Concurrent.CompletableFuture}}<{{/async}}{{responseType}}{{#async}}>{{/async}} {{#camelCase}}{{id}}{{/camelCase}}({{type.builderFnType}} fn)
+    public final{{functionTypeParameterDiamond}} {{#async}}{{TYPES.Java.Util.Concurrent.CompletableFuture}}<{{/async}}{{responseType}}{{#async}}>{{/async}} {{#camelCase}}{{id}}{{/camelCase}}({{type.builderFnType}} fn)
             throws IOException, OpenSearchException {
         return {{#camelCase}}{{id}}{{/camelCase}}(fn.apply(new {{type.builderType}}()).build());
     }
@@ -42,10 +65,11 @@
     /**
      * {{description}}
      */
-    public {{#async}}{{TYPES.Java.Util.Concurrent.CompletableFuture}}<{{/async}}{{responseType}}{{#async}}>{{/async}} {{#camelCase}}{{id}}{{/camelCase}}()
+    public{{functionTypeParameterDiamond}} {{#async}}{{TYPES.Java.Util.Concurrent.CompletableFuture}}<{{/async}}{{responseType}}{{#async}}>{{/async}} {{#camelCase}}{{id}}{{/camelCase}}()
             throws IOException, OpenSearchException {
-        return {{#camelCase}}{{id}}{{/camelCase}}(new {{type.builderType}}().build());
+        return this.transport.performRequest{{#async}}Async{{/async}}(new {{type.builderType}}().build(), {{type.name}}._ENDPOINT, this.transportOptions);
     }
     {{/hasAnyRequiredFields}}
+    {{/canBeSingleton}}
 {{/operations}}
 }

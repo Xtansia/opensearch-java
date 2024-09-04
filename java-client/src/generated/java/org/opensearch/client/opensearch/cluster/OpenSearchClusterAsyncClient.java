@@ -30,11 +30,16 @@
  * GitHub history for details.
  */
 
+//----------------------------------------------------
+// THIS CODE IS GENERATED. MANUAL EDITS WILL BE LOST.
+//----------------------------------------------------
+
 package org.opensearch.client.opensearch.cluster;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
+import javax.annotation.Generated;
 import javax.annotation.Nullable;
 import org.opensearch.client.ApiClient;
 import org.opensearch.client.opensearch._types.ErrorResponse;
@@ -48,8 +53,8 @@ import org.opensearch.client.util.ObjectBuilder;
 /**
  * Client for the cluster namespace.
  */
+@Generated("org.opensearch.client.codegen.CodeGenerator")
 public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport, OpenSearchClusterAsyncClient> {
-
     public OpenSearchClusterAsyncClient(OpenSearchTransport transport) {
         super(transport, null);
     }
@@ -67,10 +72,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Provides explanations for shard allocations in the cluster.
-     *
-     *
      */
-
     public CompletableFuture<AllocationExplainResponse> allocationExplain(AllocationExplainRequest request) throws IOException,
         OpenSearchException {
         @SuppressWarnings("unchecked")
@@ -85,12 +87,8 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     /**
      * Provides explanations for shard allocations in the cluster.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link AllocationExplainRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link AllocationExplainRequest}
      */
-
     public final CompletableFuture<AllocationExplainResponse> allocationExplain(
         Function<AllocationExplainRequest.Builder, ObjectBuilder<AllocationExplainRequest>> fn
     ) throws IOException, OpenSearchException {
@@ -99,10 +97,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Provides explanations for shard allocations in the cluster.
-     *
-     *
      */
-
     public CompletableFuture<AllocationExplainResponse> allocationExplain() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(
             new AllocationExplainRequest.Builder().build(),
@@ -111,14 +106,48 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
         );
     }
 
+    // ----- Endpoint: cluster.cluster_stats
+
+    /**
+     * Returns high-level overview of cluster statistics.
+     */
+    public CompletableFuture<ClusterStatsResponse> clusterStats(ClusterStatsRequest request) throws IOException, OpenSearchException {
+        @SuppressWarnings("unchecked")
+        JsonEndpoint<ClusterStatsRequest, ClusterStatsResponse, ErrorResponse> endpoint = (JsonEndpoint<
+            ClusterStatsRequest,
+            ClusterStatsResponse,
+            ErrorResponse>) ClusterStatsRequest._ENDPOINT;
+
+        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
+    }
+
+    /**
+     * Returns high-level overview of cluster statistics.
+     *
+     * @param fn a function that initializes a builder to create the {@link ClusterStatsRequest}
+     */
+    public final CompletableFuture<ClusterStatsResponse> clusterStats(
+        Function<ClusterStatsRequest.Builder, ObjectBuilder<ClusterStatsRequest>> fn
+    ) throws IOException, OpenSearchException {
+        return clusterStats(fn.apply(new ClusterStatsRequest.Builder()).build());
+    }
+
+    /**
+     * Returns high-level overview of cluster statistics.
+     */
+    public CompletableFuture<ClusterStatsResponse> clusterStats() throws IOException, OpenSearchException {
+        return this.transport.performRequestAsync(
+            new ClusterStatsRequest.Builder().build(),
+            ClusterStatsRequest._ENDPOINT,
+            this.transportOptions
+        );
+    }
+
     // ----- Endpoint: cluster.delete_component_template
 
     /**
      * Deletes a component template
-     *
-     *
      */
-
     public CompletableFuture<DeleteComponentTemplateResponse> deleteComponentTemplate(DeleteComponentTemplateRequest request)
         throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
@@ -133,12 +162,8 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     /**
      * Deletes a component template
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link DeleteComponentTemplateRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link DeleteComponentTemplateRequest}
      */
-
     public final CompletableFuture<DeleteComponentTemplateResponse> deleteComponentTemplate(
         Function<DeleteComponentTemplateRequest.Builder, ObjectBuilder<DeleteComponentTemplateRequest>> fn
     ) throws IOException, OpenSearchException {
@@ -149,10 +174,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Clears cluster voting config exclusions.
-     *
-     *
      */
-
     public CompletableFuture<BooleanResponse> deleteVotingConfigExclusions(DeleteVotingConfigExclusionsRequest request) throws IOException,
         OpenSearchException {
         @SuppressWarnings("unchecked")
@@ -167,12 +189,8 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     /**
      * Clears cluster voting config exclusions.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link DeleteVotingConfigExclusionsRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link DeleteVotingConfigExclusionsRequest}
      */
-
     public final CompletableFuture<BooleanResponse> deleteVotingConfigExclusions(
         Function<DeleteVotingConfigExclusionsRequest.Builder, ObjectBuilder<DeleteVotingConfigExclusionsRequest>> fn
     ) throws IOException, OpenSearchException {
@@ -181,10 +199,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Clears cluster voting config exclusions.
-     *
-     *
      */
-
     public CompletableFuture<BooleanResponse> deleteVotingConfigExclusions() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(
             new DeleteVotingConfigExclusionsRequest.Builder().build(),
@@ -197,10 +212,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Returns information about whether a particular component template exist
-     *
-     *
      */
-
     public CompletableFuture<BooleanResponse> existsComponentTemplate(ExistsComponentTemplateRequest request) throws IOException,
         OpenSearchException {
         @SuppressWarnings("unchecked")
@@ -215,26 +227,57 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     /**
      * Returns information about whether a particular component template exist
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link ExistsComponentTemplateRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link ExistsComponentTemplateRequest}
      */
-
     public final CompletableFuture<BooleanResponse> existsComponentTemplate(
         Function<ExistsComponentTemplateRequest.Builder, ObjectBuilder<ExistsComponentTemplateRequest>> fn
     ) throws IOException, OpenSearchException {
         return existsComponentTemplate(fn.apply(new ExistsComponentTemplateRequest.Builder()).build());
     }
 
+    // ----- Endpoint: cluster.get_cluster_settings
+
+    /**
+     * Returns cluster settings.
+     */
+    public CompletableFuture<GetClusterSettingsResponse> getClusterSettings(GetClusterSettingsRequest request) throws IOException,
+        OpenSearchException {
+        @SuppressWarnings("unchecked")
+        JsonEndpoint<GetClusterSettingsRequest, GetClusterSettingsResponse, ErrorResponse> endpoint = (JsonEndpoint<
+            GetClusterSettingsRequest,
+            GetClusterSettingsResponse,
+            ErrorResponse>) GetClusterSettingsRequest._ENDPOINT;
+
+        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
+    }
+
+    /**
+     * Returns cluster settings.
+     *
+     * @param fn a function that initializes a builder to create the {@link GetClusterSettingsRequest}
+     */
+    public final CompletableFuture<GetClusterSettingsResponse> getClusterSettings(
+        Function<GetClusterSettingsRequest.Builder, ObjectBuilder<GetClusterSettingsRequest>> fn
+    ) throws IOException, OpenSearchException {
+        return getClusterSettings(fn.apply(new GetClusterSettingsRequest.Builder()).build());
+    }
+
+    /**
+     * Returns cluster settings.
+     */
+    public CompletableFuture<GetClusterSettingsResponse> getClusterSettings() throws IOException, OpenSearchException {
+        return this.transport.performRequestAsync(
+            new GetClusterSettingsRequest.Builder().build(),
+            GetClusterSettingsRequest._ENDPOINT,
+            this.transportOptions
+        );
+    }
+
     // ----- Endpoint: cluster.get_component_template
 
     /**
      * Returns one or more component templates
-     *
-     *
      */
-
     public CompletableFuture<GetComponentTemplateResponse> getComponentTemplate(GetComponentTemplateRequest request) throws IOException,
         OpenSearchException {
         @SuppressWarnings("unchecked")
@@ -249,12 +292,8 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     /**
      * Returns one or more component templates
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link GetComponentTemplateRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link GetComponentTemplateRequest}
      */
-
     public final CompletableFuture<GetComponentTemplateResponse> getComponentTemplate(
         Function<GetComponentTemplateRequest.Builder, ObjectBuilder<GetComponentTemplateRequest>> fn
     ) throws IOException, OpenSearchException {
@@ -263,10 +302,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Returns one or more component templates
-     *
-     *
      */
-
     public CompletableFuture<GetComponentTemplateResponse> getComponentTemplate() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(
             new GetComponentTemplateRequest.Builder().build(),
@@ -275,62 +311,11 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
         );
     }
 
-    // ----- Endpoint: cluster.get_settings
-
-    /**
-     * Returns cluster settings.
-     *
-     *
-     */
-
-    public CompletableFuture<GetClusterSettingsResponse> getSettings(GetClusterSettingsRequest request) throws IOException,
-        OpenSearchException {
-        @SuppressWarnings("unchecked")
-        JsonEndpoint<GetClusterSettingsRequest, GetClusterSettingsResponse, ErrorResponse> endpoint = (JsonEndpoint<
-            GetClusterSettingsRequest,
-            GetClusterSettingsResponse,
-            ErrorResponse>) GetClusterSettingsRequest._ENDPOINT;
-
-        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
-    }
-
-    /**
-     * Returns cluster settings.
-     *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link GetClusterSettingsRequest}
-     *
-     */
-
-    public final CompletableFuture<GetClusterSettingsResponse> getSettings(
-        Function<GetClusterSettingsRequest.Builder, ObjectBuilder<GetClusterSettingsRequest>> fn
-    ) throws IOException, OpenSearchException {
-        return getSettings(fn.apply(new GetClusterSettingsRequest.Builder()).build());
-    }
-
-    /**
-     * Returns cluster settings.
-     *
-     *
-     */
-
-    public CompletableFuture<GetClusterSettingsResponse> getSettings() throws IOException, OpenSearchException {
-        return this.transport.performRequestAsync(
-            new GetClusterSettingsRequest.Builder().build(),
-            GetClusterSettingsRequest._ENDPOINT,
-            this.transportOptions
-        );
-    }
-
     // ----- Endpoint: cluster.health
 
     /**
      * Returns basic information about the health of the cluster.
-     *
-     *
      */
-
     public CompletableFuture<HealthResponse> health(HealthRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<HealthRequest, HealthResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -344,12 +329,8 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     /**
      * Returns basic information about the health of the cluster.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link HealthRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link HealthRequest}
      */
-
     public final CompletableFuture<HealthResponse> health(Function<HealthRequest.Builder, ObjectBuilder<HealthRequest>> fn)
         throws IOException, OpenSearchException {
         return health(fn.apply(new HealthRequest.Builder()).build());
@@ -357,10 +338,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Returns basic information about the health of the cluster.
-     *
-     *
      */
-
     public CompletableFuture<HealthResponse> health() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(new HealthRequest.Builder().build(), HealthRequest._ENDPOINT, this.transportOptions);
     }
@@ -368,12 +346,9 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     // ----- Endpoint: cluster.pending_tasks
 
     /**
-     * Returns a list of any cluster-level changes (e.g. create index, update
-     * mapping, allocate or fail shard) which have not yet been executed.
-     *
-     *
+     * Returns a list of any cluster-level changes (e.g. create index, update mapping, allocate or fail shard) which have not yet been
+     * executed.
      */
-
     public CompletableFuture<PendingTasksResponse> pendingTasks(PendingTasksRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<PendingTasksRequest, PendingTasksResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -385,15 +360,11 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     }
 
     /**
-     * Returns a list of any cluster-level changes (e.g. create index, update
-     * mapping, allocate or fail shard) which have not yet been executed.
+     * Returns a list of any cluster-level changes (e.g. create index, update mapping, allocate or fail shard) which have not yet been
+     * executed.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link PendingTasksRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link PendingTasksRequest}
      */
-
     public final CompletableFuture<PendingTasksResponse> pendingTasks(
         Function<PendingTasksRequest.Builder, ObjectBuilder<PendingTasksRequest>> fn
     ) throws IOException, OpenSearchException {
@@ -401,12 +372,9 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     }
 
     /**
-     * Returns a list of any cluster-level changes (e.g. create index, update
-     * mapping, allocate or fail shard) which have not yet been executed.
-     *
-     *
+     * Returns a list of any cluster-level changes (e.g. create index, update mapping, allocate or fail shard) which have not yet been
+     * executed.
      */
-
     public CompletableFuture<PendingTasksResponse> pendingTasks() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(
             new PendingTasksRequest.Builder().build(),
@@ -419,10 +387,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Updates the cluster voting config exclusions by node ids or node names.
-     *
-     *
      */
-
     public CompletableFuture<BooleanResponse> postVotingConfigExclusions(PostVotingConfigExclusionsRequest request) throws IOException,
         OpenSearchException {
         @SuppressWarnings("unchecked")
@@ -437,12 +402,8 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     /**
      * Updates the cluster voting config exclusions by node ids or node names.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link PostVotingConfigExclusionsRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link PostVotingConfigExclusionsRequest}
      */
-
     public final CompletableFuture<BooleanResponse> postVotingConfigExclusions(
         Function<PostVotingConfigExclusionsRequest.Builder, ObjectBuilder<PostVotingConfigExclusionsRequest>> fn
     ) throws IOException, OpenSearchException {
@@ -451,10 +412,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Updates the cluster voting config exclusions by node ids or node names.
-     *
-     *
      */
-
     public CompletableFuture<BooleanResponse> postVotingConfigExclusions() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(
             new PostVotingConfigExclusionsRequest.Builder().build(),
@@ -463,14 +421,49 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
         );
     }
 
+    // ----- Endpoint: cluster.put_cluster_settings
+
+    /**
+     * Updates the cluster settings.
+     */
+    public CompletableFuture<PutClusterSettingsResponse> putClusterSettings(PutClusterSettingsRequest request) throws IOException,
+        OpenSearchException {
+        @SuppressWarnings("unchecked")
+        JsonEndpoint<PutClusterSettingsRequest, PutClusterSettingsResponse, ErrorResponse> endpoint = (JsonEndpoint<
+            PutClusterSettingsRequest,
+            PutClusterSettingsResponse,
+            ErrorResponse>) PutClusterSettingsRequest._ENDPOINT;
+
+        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
+    }
+
+    /**
+     * Updates the cluster settings.
+     *
+     * @param fn a function that initializes a builder to create the {@link PutClusterSettingsRequest}
+     */
+    public final CompletableFuture<PutClusterSettingsResponse> putClusterSettings(
+        Function<PutClusterSettingsRequest.Builder, ObjectBuilder<PutClusterSettingsRequest>> fn
+    ) throws IOException, OpenSearchException {
+        return putClusterSettings(fn.apply(new PutClusterSettingsRequest.Builder()).build());
+    }
+
+    /**
+     * Updates the cluster settings.
+     */
+    public CompletableFuture<PutClusterSettingsResponse> putClusterSettings() throws IOException, OpenSearchException {
+        return this.transport.performRequestAsync(
+            new PutClusterSettingsRequest.Builder().build(),
+            PutClusterSettingsRequest._ENDPOINT,
+            this.transportOptions
+        );
+    }
+
     // ----- Endpoint: cluster.put_component_template
 
     /**
      * Creates or updates a component template
-     *
-     *
      */
-
     public CompletableFuture<PutComponentTemplateResponse> putComponentTemplate(PutComponentTemplateRequest request) throws IOException,
         OpenSearchException {
         @SuppressWarnings("unchecked")
@@ -485,72 +478,19 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     /**
      * Creates or updates a component template
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link PutComponentTemplateRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link PutComponentTemplateRequest}
      */
-
     public final CompletableFuture<PutComponentTemplateResponse> putComponentTemplate(
         Function<PutComponentTemplateRequest.Builder, ObjectBuilder<PutComponentTemplateRequest>> fn
     ) throws IOException, OpenSearchException {
         return putComponentTemplate(fn.apply(new PutComponentTemplateRequest.Builder()).build());
     }
 
-    // ----- Endpoint: cluster.put_settings
-
-    /**
-     * Updates the cluster settings.
-     *
-     *
-     */
-
-    public CompletableFuture<PutClusterSettingsResponse> putSettings(PutClusterSettingsRequest request) throws IOException,
-        OpenSearchException {
-        @SuppressWarnings("unchecked")
-        JsonEndpoint<PutClusterSettingsRequest, PutClusterSettingsResponse, ErrorResponse> endpoint = (JsonEndpoint<
-            PutClusterSettingsRequest,
-            PutClusterSettingsResponse,
-            ErrorResponse>) PutClusterSettingsRequest._ENDPOINT;
-
-        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
-    }
-
-    /**
-     * Updates the cluster settings.
-     *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link PutClusterSettingsRequest}
-     *
-     */
-
-    public final CompletableFuture<PutClusterSettingsResponse> putSettings(
-        Function<PutClusterSettingsRequest.Builder, ObjectBuilder<PutClusterSettingsRequest>> fn
-    ) throws IOException, OpenSearchException {
-        return putSettings(fn.apply(new PutClusterSettingsRequest.Builder()).build());
-    }
-
-    /**
-     * Updates the cluster settings.
-     *
-     *
-     */
-
-    public CompletableFuture<PutClusterSettingsResponse> putSettings() throws IOException, OpenSearchException {
-        return this.transport.performRequestAsync(
-            new PutClusterSettingsRequest.Builder().build(),
-            PutClusterSettingsRequest._ENDPOINT,
-            this.transportOptions
-        );
-    }
-
     // ----- Endpoint: cluster.remote_info
 
     /**
-     * Returns the information about configured remote clusters.
-     *
-     *
+     * The cluster remote info API allows you to retrieve all of the configured remote cluster information. It returns connection and
+     * endpoint information keyed by the configured remote cluster alias.
      */
     public CompletableFuture<RemoteInfoResponse> remoteInfo() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(RemoteInfoRequest._INSTANCE, RemoteInfoRequest._ENDPOINT, this.transportOptions);
@@ -560,10 +500,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Allows to manually change the allocation of individual shards in the cluster.
-     *
-     *
      */
-
     public CompletableFuture<RerouteResponse> reroute(RerouteRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<RerouteRequest, RerouteResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -577,12 +514,8 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     /**
      * Allows to manually change the allocation of individual shards in the cluster.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link RerouteRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link RerouteRequest}
      */
-
     public final CompletableFuture<RerouteResponse> reroute(Function<RerouteRequest.Builder, ObjectBuilder<RerouteRequest>> fn)
         throws IOException, OpenSearchException {
         return reroute(fn.apply(new RerouteRequest.Builder()).build());
@@ -590,10 +523,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Allows to manually change the allocation of individual shards in the cluster.
-     *
-     *
      */
-
     public CompletableFuture<RerouteResponse> reroute() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(new RerouteRequest.Builder().build(), RerouteRequest._ENDPOINT, this.transportOptions);
     }
@@ -602,10 +532,7 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Returns a comprehensive information about the state of the cluster.
-     *
-     *
      */
-
     public CompletableFuture<StateResponse> state(StateRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<StateRequest, StateResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -619,12 +546,8 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
     /**
      * Returns a comprehensive information about the state of the cluster.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link StateRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link StateRequest}
      */
-
     public final CompletableFuture<StateResponse> state(Function<StateRequest.Builder, ObjectBuilder<StateRequest>> fn) throws IOException,
         OpenSearchException {
         return state(fn.apply(new StateRequest.Builder()).build());
@@ -632,58 +555,8 @@ public class OpenSearchClusterAsyncClient extends ApiClient<OpenSearchTransport,
 
     /**
      * Returns a comprehensive information about the state of the cluster.
-     *
-     *
      */
-
     public CompletableFuture<StateResponse> state() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(new StateRequest.Builder().build(), StateRequest._ENDPOINT, this.transportOptions);
     }
-
-    // ----- Endpoint: cluster.stats
-
-    /**
-     * Returns high-level overview of cluster statistics.
-     *
-     *
-     */
-
-    public CompletableFuture<ClusterStatsResponse> stats(ClusterStatsRequest request) throws IOException, OpenSearchException {
-        @SuppressWarnings("unchecked")
-        JsonEndpoint<ClusterStatsRequest, ClusterStatsResponse, ErrorResponse> endpoint = (JsonEndpoint<
-            ClusterStatsRequest,
-            ClusterStatsResponse,
-            ErrorResponse>) ClusterStatsRequest._ENDPOINT;
-
-        return this.transport.performRequestAsync(request, endpoint, this.transportOptions);
-    }
-
-    /**
-     * Returns high-level overview of cluster statistics.
-     *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link ClusterStatsRequest}
-     *
-     */
-
-    public final CompletableFuture<ClusterStatsResponse> stats(Function<ClusterStatsRequest.Builder, ObjectBuilder<ClusterStatsRequest>> fn)
-        throws IOException, OpenSearchException {
-        return stats(fn.apply(new ClusterStatsRequest.Builder()).build());
-    }
-
-    /**
-     * Returns high-level overview of cluster statistics.
-     *
-     *
-     */
-
-    public CompletableFuture<ClusterStatsResponse> stats() throws IOException, OpenSearchException {
-        return this.transport.performRequestAsync(
-            new ClusterStatsRequest.Builder().build(),
-            ClusterStatsRequest._ENDPOINT,
-            this.transportOptions
-        );
-    }
-
 }

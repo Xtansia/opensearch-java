@@ -30,9 +30,14 @@
  * GitHub history for details.
  */
 
+//----------------------------------------------------
+// THIS CODE IS GENERATED. MANUAL EDITS WILL BE LOST.
+//----------------------------------------------------
+
 package org.opensearch.client.opensearch.features;
 
 import java.io.IOException;
+import javax.annotation.Generated;
 import javax.annotation.Nullable;
 import org.opensearch.client.ApiClient;
 import org.opensearch.client.opensearch._types.OpenSearchException;
@@ -42,8 +47,8 @@ import org.opensearch.client.transport.TransportOptions;
 /**
  * Client for the features namespace.
  */
+@Generated("org.opensearch.client.codegen.CodeGenerator")
 public class OpenSearchFeaturesClient extends ApiClient<OpenSearchTransport, OpenSearchFeaturesClient> {
-
     public OpenSearchFeaturesClient(OpenSearchTransport transport) {
         super(transport, null);
     }
@@ -60,10 +65,7 @@ public class OpenSearchFeaturesClient extends ApiClient<OpenSearchTransport, Ope
     // ----- Endpoint: features.get_features
 
     /**
-     * Gets a list of features which can be included in snapshots using the
-     * feature_states field when creating a snapshot
-     *
-     *
+     * Gets a list of features which can be included in snapshots using the feature_states field when creating a snapshot
      */
     public GetFeaturesResponse getFeatures() throws IOException, OpenSearchException {
         return this.transport.performRequest(GetFeaturesRequest._INSTANCE, GetFeaturesRequest._ENDPOINT, this.transportOptions);
@@ -73,11 +75,8 @@ public class OpenSearchFeaturesClient extends ApiClient<OpenSearchTransport, Ope
 
     /**
      * Resets the internal state of features, usually by deleting system indices
-     *
-     *
      */
     public ResetFeaturesResponse resetFeatures() throws IOException, OpenSearchException {
         return this.transport.performRequest(ResetFeaturesRequest._INSTANCE, ResetFeaturesRequest._ENDPOINT, this.transportOptions);
     }
-
 }

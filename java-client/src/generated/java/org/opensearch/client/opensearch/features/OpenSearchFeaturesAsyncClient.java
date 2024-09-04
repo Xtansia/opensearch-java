@@ -30,10 +30,15 @@
  * GitHub history for details.
  */
 
+//----------------------------------------------------
+// THIS CODE IS GENERATED. MANUAL EDITS WILL BE LOST.
+//----------------------------------------------------
+
 package org.opensearch.client.opensearch.features;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
+import javax.annotation.Generated;
 import javax.annotation.Nullable;
 import org.opensearch.client.ApiClient;
 import org.opensearch.client.opensearch._types.OpenSearchException;
@@ -43,8 +48,8 @@ import org.opensearch.client.transport.TransportOptions;
 /**
  * Client for the features namespace.
  */
+@Generated("org.opensearch.client.codegen.CodeGenerator")
 public class OpenSearchFeaturesAsyncClient extends ApiClient<OpenSearchTransport, OpenSearchFeaturesAsyncClient> {
-
     public OpenSearchFeaturesAsyncClient(OpenSearchTransport transport) {
         super(transport, null);
     }
@@ -61,10 +66,7 @@ public class OpenSearchFeaturesAsyncClient extends ApiClient<OpenSearchTransport
     // ----- Endpoint: features.get_features
 
     /**
-     * Gets a list of features which can be included in snapshots using the
-     * feature_states field when creating a snapshot
-     *
-     *
+     * Gets a list of features which can be included in snapshots using the feature_states field when creating a snapshot
      */
     public CompletableFuture<GetFeaturesResponse> getFeatures() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(GetFeaturesRequest._INSTANCE, GetFeaturesRequest._ENDPOINT, this.transportOptions);
@@ -74,11 +76,8 @@ public class OpenSearchFeaturesAsyncClient extends ApiClient<OpenSearchTransport
 
     /**
      * Resets the internal state of features, usually by deleting system indices
-     *
-     *
      */
     public CompletableFuture<ResetFeaturesResponse> resetFeatures() throws IOException, OpenSearchException {
         return this.transport.performRequestAsync(ResetFeaturesRequest._INSTANCE, ResetFeaturesRequest._ENDPOINT, this.transportOptions);
     }
-
 }

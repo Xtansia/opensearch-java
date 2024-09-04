@@ -30,10 +30,15 @@
  * GitHub history for details.
  */
 
+//----------------------------------------------------
+// THIS CODE IS GENERATED. MANUAL EDITS WILL BE LOST.
+//----------------------------------------------------
+
 package org.opensearch.client.opensearch.shutdown;
 
 import java.io.IOException;
 import java.util.function.Function;
+import javax.annotation.Generated;
 import javax.annotation.Nullable;
 import org.opensearch.client.ApiClient;
 import org.opensearch.client.opensearch._types.ErrorResponse;
@@ -46,8 +51,8 @@ import org.opensearch.client.util.ObjectBuilder;
 /**
  * Client for the shutdown namespace.
  */
+@Generated("org.opensearch.client.codegen.CodeGenerator")
 public class OpenSearchShutdownClient extends ApiClient<OpenSearchTransport, OpenSearchShutdownClient> {
-
     public OpenSearchShutdownClient(OpenSearchTransport transport) {
         super(transport, null);
     }
@@ -64,12 +69,8 @@ public class OpenSearchShutdownClient extends ApiClient<OpenSearchTransport, Ope
     // ----- Endpoint: shutdown.delete_node
 
     /**
-     * Removes a node from the shutdown list. Designed for indirect use by ECE/ESS
-     * and ECK. Direct use is not supported.
-     *
-     *
+     * Removes a node from the shutdown list. Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.
      */
-
     public DeleteNodeResponse deleteNode(DeleteNodeRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<DeleteNodeRequest, DeleteNodeResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -81,15 +82,10 @@ public class OpenSearchShutdownClient extends ApiClient<OpenSearchTransport, Ope
     }
 
     /**
-     * Removes a node from the shutdown list. Designed for indirect use by ECE/ESS
-     * and ECK. Direct use is not supported.
+     * Removes a node from the shutdown list. Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link DeleteNodeRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link DeleteNodeRequest}
      */
-
     public final DeleteNodeResponse deleteNode(Function<DeleteNodeRequest.Builder, ObjectBuilder<DeleteNodeRequest>> fn) throws IOException,
         OpenSearchException {
         return deleteNode(fn.apply(new DeleteNodeRequest.Builder()).build());
@@ -98,13 +94,9 @@ public class OpenSearchShutdownClient extends ApiClient<OpenSearchTransport, Ope
     // ----- Endpoint: shutdown.get_node
 
     /**
-     * Retrieve status of a node or nodes that are currently marked as shutting
-     * down. Designed for indirect use by ECE/ESS and ECK. Direct use is not
-     * supported.
-     *
-     *
+     * Retrieve status of a node or nodes that are currently marked as shutting down. Designed for indirect use by ECE/ESS and ECK. Direct
+     * use is not supported.
      */
-
     public GetNodeResponse getNode(GetNodeRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<GetNodeRequest, GetNodeResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -116,29 +108,20 @@ public class OpenSearchShutdownClient extends ApiClient<OpenSearchTransport, Ope
     }
 
     /**
-     * Retrieve status of a node or nodes that are currently marked as shutting
-     * down. Designed for indirect use by ECE/ESS and ECK. Direct use is not
-     * supported.
+     * Retrieve status of a node or nodes that are currently marked as shutting down. Designed for indirect use by ECE/ESS and ECK. Direct
+     * use is not supported.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link GetNodeRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link GetNodeRequest}
      */
-
     public final GetNodeResponse getNode(Function<GetNodeRequest.Builder, ObjectBuilder<GetNodeRequest>> fn) throws IOException,
         OpenSearchException {
         return getNode(fn.apply(new GetNodeRequest.Builder()).build());
     }
 
     /**
-     * Retrieve status of a node or nodes that are currently marked as shutting
-     * down. Designed for indirect use by ECE/ESS and ECK. Direct use is not
-     * supported.
-     *
-     *
+     * Retrieve status of a node or nodes that are currently marked as shutting down. Designed for indirect use by ECE/ESS and ECK. Direct
+     * use is not supported.
      */
-
     public GetNodeResponse getNode() throws IOException, OpenSearchException {
         return this.transport.performRequest(new GetNodeRequest.Builder().build(), GetNodeRequest._ENDPOINT, this.transportOptions);
     }
@@ -146,12 +129,8 @@ public class OpenSearchShutdownClient extends ApiClient<OpenSearchTransport, Ope
     // ----- Endpoint: shutdown.put_node
 
     /**
-     * Adds a node to be shut down. Designed for indirect use by ECE/ESS and ECK.
-     * Direct use is not supported.
-     *
-     *
+     * Adds a node to be shut down. Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.
      */
-
     public PutNodeResponse putNode(PutNodeRequest request) throws IOException, OpenSearchException {
         @SuppressWarnings("unchecked")
         JsonEndpoint<PutNodeRequest, PutNodeResponse, ErrorResponse> endpoint = (JsonEndpoint<
@@ -163,18 +142,12 @@ public class OpenSearchShutdownClient extends ApiClient<OpenSearchTransport, Ope
     }
 
     /**
-     * Adds a node to be shut down. Designed for indirect use by ECE/ESS and ECK.
-     * Direct use is not supported.
+     * Adds a node to be shut down. Designed for indirect use by ECE/ESS and ECK. Direct use is not supported.
      *
-     * @param fn
-     *            a function that initializes a builder to create the
-     *            {@link PutNodeRequest}
-     *
+     * @param fn a function that initializes a builder to create the {@link PutNodeRequest}
      */
-
     public final PutNodeResponse putNode(Function<PutNodeRequest.Builder, ObjectBuilder<PutNodeRequest>> fn) throws IOException,
         OpenSearchException {
         return putNode(fn.apply(new PutNodeRequest.Builder()).build());
     }
-
 }

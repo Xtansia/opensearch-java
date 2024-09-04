@@ -36,7 +36,8 @@ public final class ShapeRenderingContext implements AutoCloseable {
 
     @Nonnull
     public ShapeRenderingContext forSubDir(@Nonnull String name) {
-        return builder().withOutputDir(new File(outputDir, Strings.requireNonBlank(name, "name must not be null")))
+        Strings.requireNonBlank(name, "name must not be null");
+        return builder().withOutputDir(new File(outputDir, name))
             .withTemplateLoader(templateLoader)
             .withJavaCodeFormatter(javaCodeFormatter)
             .build();
